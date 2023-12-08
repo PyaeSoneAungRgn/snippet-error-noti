@@ -19,7 +19,7 @@ You can learn how to obtain a webhook URL in the [Slack API documentation](https
 Enable the capture of exceptions for reporting to Slack by implementing the following change in your `app/Exceptions/Handler.php` file.
 
 ```php
-use PyaeSoneAung\SnippetErrorNoti\SnippetErrorNoti;
+use SnippetErrorNoti;
 
 public function register(): void
 {
