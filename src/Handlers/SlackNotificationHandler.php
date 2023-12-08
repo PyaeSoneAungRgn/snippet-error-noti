@@ -43,10 +43,19 @@ class SlackNotificationHandler implements NotificationHandler
                 'type' => 'section',
                 'text' => [
                     'type' => 'mrkdwn',
-                    'text' => "{$traceHandler->getFile()}:{$traceHandler->getLineNumber()}"
-                        .($traceHandler->getSnippet() ? "\n```{$traceHandler->getSnippet()}```" : ''),
+                    'text' => "*File:*\n{$traceHandler->getFile()} :{$traceHandler->getLineNumber()}",
                 ],
             ];
+
+            if ($traceHandler->getSnippet()) {
+                $blocks[] = [
+                    'type' => 'section',
+                    'text' => [
+                        'type' => 'mrkdwn',
+                        'text' => "```{$traceHandler->getSnippet()}```",
+                    ],
+                ];
+            }
 
             SlackAlert::to(config('snippet-error-noti.webhook'))
                 ->blocks($blocks);
