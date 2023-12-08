@@ -1,3 +1,5 @@
+![Snippet Error Noti](https://repository-images.githubusercontent.com/729276965/f357d0c9-69ee-4632-88ae-e77cac7fbd79)
+
 # Snippet Error Noti
 
 Notify Laravel errors to Slack with a clean UI and include a code snippet.
