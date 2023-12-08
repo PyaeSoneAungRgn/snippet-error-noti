@@ -58,6 +58,8 @@ class BacktraceHandler implements TraceHandler
                 if ($number == $this->applicationFrame->lineNumber) {
                     $formattedLine .= ' 👈';
                 }
+
+                return $formattedLine;
             })
                 ->join(PHP_EOL);
         }
