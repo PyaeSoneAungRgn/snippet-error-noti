@@ -1,5 +1,8 @@
 ![Snippet Error Noti](https://repository-images.githubusercontent.com/729276965/f357d0c9-69ee-4632-88ae-e77cac7fbd79)
 
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/PyaeSoneAungRgn/snippet-error-noti/run-tests.yml?branch=main&label=test)](https://github.com/PyaeSoneAungRgn/snippet-error-noti/actions/workflows/run-tests.yml)
+[![Packagist Version](https://img.shields.io/packagist/v/pyaesoneaung/snippet-error-noti)](https://packagist.org/packages/pyaesoneaung/snippet-error-noti)
+
 # Snippet Error Noti
 
 Notify Laravel errors to Slack with a clean UI and include a code snippet.
