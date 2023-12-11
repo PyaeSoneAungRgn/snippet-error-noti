@@ -19,7 +19,9 @@ composer require pyaesoneaung/snippet-error-noti
 SNIPPET_ERROR_NOTI_ENABLE=true
 SNIPPET_ERROR_NOTI_WEBHOOK=slack-webhook-url
 ```
-You can learn how to obtain a webhook URL in the [Slack API documentation](https://api.slack.com/messaging/webhooks).
+You can learn how to obtain a webhook URL in the [Slack API documentation](https://api.slack.com/messaging/webhooks). Under the hood, [spatie/laravel-slack-alerts](https://github.com/spatie/laravel-slack-alerts) is utilized to communicate with Slack.
+
+## Usage
 
 Enable the capture of exceptions for reporting to Slack by implementing the following change in your `app/Exceptions/Handler.php` file.
 
