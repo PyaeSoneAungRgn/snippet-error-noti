@@ -27,6 +27,7 @@ Enable the capture of exceptions for reporting to Slack by implementing the foll
 
 ```php
 use SnippetErrorNoti;
+use Throwable;
 
 public function register(): void
 {
