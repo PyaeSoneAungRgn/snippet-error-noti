@@ -21,23 +21,38 @@ class SlackNotificationHandler implements NotificationHandler
                 ],
             ];
 
-            if ($traceHandler->getRouteAction()) {
+            $routeAction = $traceHandler->getRouteAction();
+            if ($routeAction) {
                 $blocks[] = [
                     'type' => 'section',
                     'text' => [
                         'type' => 'mrkdwn',
-                        'text' => "*RouteAction:*\n{$traceHandler->getRouteAction()}",
+                        'text' => "*RouteAction:*\n{$routeAction}",
                     ],
                 ];
             }
 
-            $blocks[] = [
-                'type' => 'section',
-                'text' => [
-                    'type' => 'mrkdwn',
-                    'text' => "*Request ({$traceHandler->getRequestMethod()}):*\n{$traceHandler->getRequestUrl()}",
-                ],
-            ];
+            if (php_sapi_name() == 'cli' || php_sapi_name() == 'phpdbg') {
+                $cliArgv = $traceHandler->getCliArgv();
+                if ($cliArgv) {
+                    $cliArgv = implode(' ', $cliArgv);
+                    $blocks[] = [
+                        'type' => 'section',
+                        'text' => [
+                            'type' => 'mrkdwn',
+                            'text' => "*CLI Argv:*\n{$cliArgv}",
+                        ],
+                    ];
+                }
+            } else {
+                $blocks[] = [
+                    'type' => 'section',
+                    'text' => [
+                        'type' => 'mrkdwn',
+                        'text' => "*Request ({$traceHandler->getRequestMethod()}):*\n{$traceHandler->getRequestUrl()}",
+                    ],
+                ];
+            }
 
             $blocks[] = [
                 'type' => 'section',
@@ -47,12 +62,13 @@ class SlackNotificationHandler implements NotificationHandler
                 ],
             ];
 
-            if ($traceHandler->getSnippet()) {
+            $snippet = $traceHandler->getSnippet();
+            if ($snippet) {
                 $blocks[] = [
                     'type' => 'section',
                     'text' => [
                         'type' => 'mrkdwn',
-                        'text' => "```{$traceHandler->getSnippet()}```",
+                        'text' => "```{$snippet}```",
                     ],
                 ];
             }

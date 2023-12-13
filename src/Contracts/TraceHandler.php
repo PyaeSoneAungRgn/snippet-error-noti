@@ -21,4 +21,6 @@ interface TraceHandler
     public function getRequestUrl(): string;
 
     public function getRequestMethod(): string;
+
+    public function getCliArgv(): array;
 }

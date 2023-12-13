@@ -81,4 +81,9 @@ class BacktraceHandler implements TraceHandler
     {
         return request()->method();
     }
+
+    public function getCliArgv(): array
+    {
+        return $_SERVER['argv'] ?? [];
+    }
 }
